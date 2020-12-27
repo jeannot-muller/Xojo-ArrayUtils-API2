@@ -663,7 +663,7 @@ Protected Module ArrayUtils
 		- Added the Concat method.
 		- Added the Reverse method.
 		
-		2020-DeC-27:
+		2020-DEC-27:
 		- Renamed Append to Add 
 		- Conversion to API2
 		
