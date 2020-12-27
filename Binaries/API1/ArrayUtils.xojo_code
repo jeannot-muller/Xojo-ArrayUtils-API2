@@ -1,16 +1,16 @@
 #tag Module
 Protected Module ArrayUtils
 	#tag Method, Flags = &h0
-		Sub Add(Extends arr() As Double, arr2() As Double)
+		Sub Append(Extends arr() As Double, arr2() As Double)
 		  // Concatenate arr2 to arr.
 		  
-		  Var ub2 As Integer = arr2.LastIndex
+		  Dim ub2 As Integer = UBound( arr2 )
 		  if ub2 < 0 then return
 		  
-		  Var base As Integer = arr.LastIndex + 1
-		  ReDim arr( base + ub2 )
+		  Dim base As Integer = UBound( arr ) + 1
+		  Redim arr( base + ub2 )
 		  
-		  Var index As Integer
+		  Dim index As Integer
 		  for index = 0 to ub2
 		    arr( base + index ) = arr2( index )
 		  next
@@ -20,16 +20,16 @@ Protected Module ArrayUtils
 	#tag EndMethod
 
 	#tag Method, Flags = &h0
-		Sub add(Extends arr() As Integer, arr2() As Integer)
+		Sub Append(Extends arr() As Integer, arr2() As Integer)
 		  // Concatenate arr2 to arr.
 		  
-		  Var ub2 As Integer = arr2.LastIndex
+		  Dim ub2 As Integer = UBound( arr2 )
 		  if ub2 < 0 then return
 		  
-		  Var base As Integer = arr.LastIndex + 1
-		  ReDim arr( base + ub2 )
+		  Dim base As Integer = UBound( arr ) + 1
+		  Redim arr( base + ub2 )
 		  
-		  Var index As Integer
+		  Dim index As Integer
 		  for index = 0 to ub2
 		    arr( base + index ) = arr2( index )
 		  next
@@ -39,16 +39,16 @@ Protected Module ArrayUtils
 	#tag EndMethod
 
 	#tag Method, Flags = &h0
-		Sub add(Extends arr() As String, arr2() As String)
+		Sub Append(Extends arr() As String, arr2() As String)
 		  // Concatenate arr2 to arr.
 		  
-		  Var ub2 As Integer = arr2.LastIndex
+		  Dim ub2 As Integer = UBound( arr2 )
 		  if ub2 < 0 then return
 		  
-		  Var base As Integer = arr.LastIndex + 1
-		  ReDim arr( base + ub2 )
+		  Dim base As Integer = UBound( arr ) + 1
+		  Redim arr( base + ub2 )
 		  
-		  Var index As Integer
+		  Dim index As Integer
 		  for index = 0 to ub2
 		    arr( base + index ) = arr2( index )
 		  next
@@ -60,11 +60,11 @@ Protected Module ArrayUtils
 	#tag Method, Flags = &h0
 		Function Average(Extends arr() As Double) As Double
 		  // Return the arithmetic mean of the values in the array.
-		  Var item, sum As Double
+		  Dim item, sum As Double
 		  for each item in arr
 		    sum = sum + item
 		  next
-		  return sum / ( arr.LastIndex + 1 )
+		  return sum / (UBound(arr) + 1)
 		  
 		End Function
 	#tag EndMethod
@@ -72,11 +72,11 @@ Protected Module ArrayUtils
 	#tag Method, Flags = &h0
 		Function Average(Extends arr() As Integer) As Double
 		  // Return the arithmetic mean of the values in the array.
-		  Var item, sum As Integer
+		  Dim item, sum As Integer
 		  for each item in arr
 		    sum = sum + item
 		  next
-		  return sum / ( arr.LastIndex + 1)
+		  return sum / (UBound(arr) + 1)
 		  
 		End Function
 	#tag EndMethod
@@ -85,11 +85,11 @@ Protected Module ArrayUtils
 		Function Clone(Extends arr() As Double) As Double()
 		  // Return an independent copy of this array.
 		  
-		  Var out() As Double
-		  Var ub As Integer = arr.LastIndex
+		  Dim out() As Double
+		  Dim ub As Integer = UBound( arr )
 		  if ub >= 0 then
-		    ReDim out( ub )
-		    Var index As Integer
+		    Redim out( ub )
+		    Dim index As Integer
 		    for index = 0 to ub
 		      out( index ) = arr( index )
 		    next
@@ -103,11 +103,11 @@ Protected Module ArrayUtils
 		Function Clone(Extends arr() As Integer) As Integer()
 		  // Return an independent copy of this array.
 		  
-		  Var out() As Integer
-		  Var ub As Integer = arr.LastIndex
+		  Dim out() As Integer
+		  Dim ub As Integer = UBound( arr )
 		  if ub >= 0 then
-		    ReDim out( ub )
-		    Var index As Integer
+		    Redim out( ub )
+		    Dim index As Integer
 		    for index = 0 to ub
 		      out( index ) = arr( index )
 		    next
@@ -121,11 +121,11 @@ Protected Module ArrayUtils
 		Function Clone(Extends arr() As String) As String()
 		  // Return an independent copy of this array.
 		  
-		  Var out() As String
-		  Var ub As Integer = arr.LastIndex
+		  Dim out() As String
+		  Dim ub As Integer = UBound( arr )
 		  if ub >= 0 then
-		    ReDim out( ub )
-		    Var index As Integer
+		    Redim out( ub )
+		    Dim index As Integer
 		    for index = 0 to ub
 		      out( index ) = arr( index )
 		    next
@@ -138,11 +138,11 @@ Protected Module ArrayUtils
 	#tag Method, Flags = &h0
 		Function Concat(Extends arr1() As Double, arr2() As Double) As Double()
 		  // Concatenate arr2 to arr1 and return the result as a new array.
-		  Var out() As Double
-		  Var ub1 As Integer = arr1.LastIndex
-		  Var ub2 As Integer = arr2.LastIndex
-		  ReDim out( ub1 + ub2 + 1 )
-		  Var index, base As Integer
+		  Dim out() As Double
+		  Dim ub1 As Integer = UBound( arr1 )
+		  Dim ub2 As Integer = UBound( arr2 )
+		  Redim out( ub1 + ub2 + 1 )
+		  Dim index, base As Integer
 		  for index = 0 to ub1
 		    out( index ) = arr1( index )
 		  next
@@ -158,11 +158,11 @@ Protected Module ArrayUtils
 	#tag Method, Flags = &h0
 		Function Concat(Extends arr1() As Integer, arr2() As Integer) As Integer()
 		  // Concatenate arr2 to arr1 and return the result as a new array.
-		  Var out() As Integer
-		  Var ub1 As Integer = arr1.LastIndex
-		  Var ub2 As Integer = arr2.LastIndex
-		  ReDim out( ub1 + ub2 + 1 )
-		  Var index, base As Integer
+		  Dim out() As Integer
+		  Dim ub1 As Integer = UBound( arr1 )
+		  Dim ub2 As Integer = UBound( arr2 )
+		  Redim out( ub1 + ub2 + 1 )
+		  Dim index, base As Integer
 		  for index = 0 to ub1
 		    out( index ) = arr1( index )
 		  next
@@ -178,11 +178,11 @@ Protected Module ArrayUtils
 	#tag Method, Flags = &h0
 		Function Concat(Extends arr1() As String, arr2() As String) As String()
 		  // Concatenate arr2 to arr1 and return the result as a new array.
-		  Var out() As String
-		  Var ub1 As Integer = arr1.LastIndex
-		  Var ub2 As Integer = arr2.LastIndex
-		  ReDim out( ub1 + ub2 + 1 )
-		  Var index, base As Integer
+		  Dim out() As String
+		  Dim ub1 As Integer = UBound( arr1 )
+		  Dim ub2 As Integer = UBound( arr2 )
+		  Redim out( ub1 + ub2 + 1 )
+		  Dim index, base As Integer
 		  for index = 0 to ub1
 		    out( index ) = arr1( index )
 		  next
@@ -198,9 +198,9 @@ Protected Module ArrayUtils
 	#tag Method, Flags = &h0
 		Function Max(Extends arr() As Double) As Double
 		  // Return the greatest of the items in the array, or 0 for an empty array.
-		  Var index, ub As Integer
-		  Var out As Double
-		  ub = arr.LastIndex
+		  Dim index, ub As Integer
+		  Dim out As Double
+		  ub = UBound(arr)
 		  if ub >= 0 then
 		    out = arr(0)
 		    for index = 1 to ub
@@ -215,9 +215,9 @@ Protected Module ArrayUtils
 	#tag Method, Flags = &h0
 		Function Max(Extends arr() As Integer) As Integer
 		  // Return the greatest of the items in the array, or 0 for an empty array.
-		  Var index, ub As Integer
-		  Var out As Integer
-		  ub = arr.LastIndex
+		  Dim index, ub As Integer
+		  Dim out As Integer
+		  ub = UBound(arr)
 		  if ub >= 0 then
 		    out = arr(0)
 		    for index = 1 to ub
@@ -232,9 +232,9 @@ Protected Module ArrayUtils
 	#tag Method, Flags = &h0
 		Function Min(Extends arr() As Double) As Double
 		  // Return the least of the items in the array, or 0 for an empty array.
-		  Var index, ub As Integer
-		  Var out As Double
-		  ub = arr.LastIndex
+		  Dim index, ub As Integer
+		  Dim out As Double
+		  ub = UBound(arr)
 		  if ub >= 0 then
 		    out = arr(0)
 		    for index = 1 to ub
@@ -249,9 +249,9 @@ Protected Module ArrayUtils
 	#tag Method, Flags = &h0
 		Function Min(Extends arr() As Integer) As Integer
 		  // Return the least of the items in the array, or 0 for an empty array.
-		  Var index, ub As Integer
-		  Var out As Integer
-		  ub = arr.LastIndex
+		  Dim index, ub As Integer
+		  Dim out As Integer
+		  ub = UBound(arr)
 		  if ub >= 0 then
 		    out = arr(0)
 		    for index = 1 to ub
@@ -268,32 +268,32 @@ Protected Module ArrayUtils
 		  // Deletes a portion of the array.
 		  // See "Slice Indexing" note.
 		  
-		  Var ub As Integer = arr.LastIndex
+		  Dim ub As Integer = UBound( arr )
 		  if fromIndex < 0 then fromIndex = ub + 1 + fromIndex
 		  if toIndex <= 0 then toIndex = ub + 1 + toIndex
 		  
 		  if fromIndex > toIndex - 1 then return  // empty (or invalid) range
 		  
-		  // easy case: deleting the end of the array, we can just ReDim and be done
+		  // easy case: deleting the end of the array, we can just redim and be done
 		  if toIndex - 1 = ub then
-		    ReDim arr( fromIndex - 1 )
+		    Redim arr( fromIndex - 1 )
 		    return
 		  end if
 		  
 		  // another easy case: deleting just one element (equivalent to Arary.Remove)
 		  if fromIndex = toIndex - 1 then
-		    arr.RemoveAt( fromIndex )
+		    arr.Remove fromIndex
 		    return
 		  end if
 		  
 		  // harder case: copy the data down, and THEN redim
-		  Var dest, src As Integer
+		  Dim dest, src, maxsrc As Integer
 		  dest = fromIndex
 		  for src = toIndex to ub
 		    arr(dest) = arr(src)
 		    dest = dest + 1
 		  next
-		  ReDim arr( dest - 1 )
+		  Redim arr( dest - 1 )
 		  return
 		  
 		End Sub
@@ -304,32 +304,32 @@ Protected Module ArrayUtils
 		  // Deletes a portion of the array.
 		  // See "Slice Indexing" note.
 		  
-		  Var ub As Integer = arr.LastIndex
+		  Dim ub As Integer = UBound( arr )
 		  if fromIndex < 0 then fromIndex = ub + 1 + fromIndex
 		  if toIndex <= 0 then toIndex = ub + 1 + toIndex
 		  
 		  if fromIndex >= toIndex then return  // empty (or invalid) range
 		  
-		  // easy case: deleting the end of the array, we can just ReDim and be done
+		  // easy case: deleting the end of the array, we can just redim and be done
 		  if toIndex - 1 = ub then
-		    ReDim arr( fromIndex - 1 )
+		    Redim arr( fromIndex - 1 )
 		    return
 		  end if
 		  
 		  // another easy case: deleting just one element (equivalent to Array.Remove)
 		  if fromIndex = toIndex - 1 then
-		    arr.RemoveAt( fromIndex )
+		    arr.Remove fromIndex
 		    return
 		  end if
 		  
 		  // harder case: copy the data down, and THEN redim
-		  Var dest, src As Integer
+		  Dim dest, src, maxsrc As Integer
 		  dest = fromIndex
 		  for src = toIndex to ub
 		    arr(dest) = arr(src)
 		    dest = dest + 1
 		  next
-		  ReDim arr( dest - 1 )
+		  Redim arr( dest - 1 )
 		  return
 		  
 		End Sub
@@ -340,32 +340,32 @@ Protected Module ArrayUtils
 		  // Deletes a portion of the array.
 		  // See "Slice Indexing" note.
 		  
-		  Var ub As Integer = arr.LastIndex
+		  Dim ub As Integer = UBound( arr )
 		  if fromIndex < 0 then fromIndex = ub + 1 + fromIndex
 		  if toIndex <= 0 then toIndex = ub + 1 + toIndex
 		  
 		  if fromIndex > toIndex - 1 then return  // empty (or invalid) range
 		  
-		  // easy case: deleting the end of the array, we can just ReDim and be done
+		  // easy case: deleting the end of the array, we can just redim and be done
 		  if toIndex -1 = ub then
-		    ReDim arr( fromIndex - 1 )
+		    Redim arr( fromIndex - 1 )
 		    return
 		  end if
 		  
 		  // another easy case: deleting just one element (equivalent to Arary.Remove)
 		  if fromIndex = toIndex - 1 then
-		    arr.RemoveAt( fromIndex )
+		    arr.Remove fromIndex
 		    return
 		  end if
 		  
 		  // harder case: copy the data down, and THEN redim
-		  Var dest, src As Integer
+		  Dim dest, src, maxsrc As Integer
 		  dest = fromIndex
 		  for src = toIndex to ub
 		    arr(dest) = arr(src)
 		    dest = dest + 1
 		  next
-		  ReDim arr( dest - 1 )
+		  Redim arr( dest - 1 )
 		  return
 		  
 		End Sub
@@ -375,13 +375,13 @@ Protected Module ArrayUtils
 		Sub Reverse(Extends arr() As Double)
 		  // Reverse the order of the elements in the array, in place.
 		  
-		  Var low, high, midpoint As Integer
-		  high = arr.LastIndex
+		  Dim low, high, midpoint As Integer
+		  high = UBound( arr )
 		  if high < 1 then return
 		  
 		  midpoint = (high + 1) \ 2
 		  while low < midpoint
-		    Var temp As Double = arr(low)
+		    Dim temp As Double = arr(low)
 		    arr(low) = arr(high)
 		    arr(high) = temp
 		    low = low + 1
@@ -394,13 +394,13 @@ Protected Module ArrayUtils
 		Sub Reverse(Extends arr() As Integer)
 		  // Reverse the order of the elements in the array, in place.
 		  
-		  Var low, high, midpoint As Integer
-		  high = arr.LastIndex
+		  Dim low, high, midpoint As Integer
+		  high = UBound( arr )
 		  if high < 1 then return
 		  
 		  midpoint = (high + 1) \ 2
 		  while low < midpoint
-		    Var temp As Integer = arr(low)
+		    Dim temp As Integer = arr(low)
 		    arr(low) = arr(high)
 		    arr(high) = temp
 		    low = low + 1
@@ -413,13 +413,13 @@ Protected Module ArrayUtils
 		Sub Reverse(Extends arr() As String)
 		  // Reverse the order of the elements in the array, in place.
 		  
-		  Var low, high, midpoint As Integer
-		  high = arr.LastIndex
+		  Dim low, high, midpoint As Integer
+		  high = UBound( arr )
 		  if high < 1 then return
 		  
 		  midpoint = (high + 1) \ 2
 		  while low < midpoint
-		    Var temp As String = arr(low)
+		    Dim temp As String = arr(low)
 		    arr(low) = arr(high)
 		    arr(high) = temp
 		    low = low + 1
@@ -436,13 +436,13 @@ Protected Module ArrayUtils
 		  // Note that if fromIndex and toIndex span the entire array, then
 		  // this function is equivalent to Clone.
 		  
-		  Var ub As Integer = arr.LastIndex
+		  Dim ub As Integer = UBound( arr )
 		  if fromIndex < 0 then fromIndex = ub + 1 + fromIndex
 		  if toIndex <= 0 then toIndex = ub + 1 + toIndex
-		  Var out() As Double
-		  Var outbound As Integer = toIndex - fromIndex - 1
-		  ReDim out( outbound )
-		  Var index As Integer
+		  Dim out() As Double
+		  Dim outbound As Integer = toIndex - fromIndex - 1
+		  Redim out( outbound )
+		  Dim index As Integer
 		  for index = 0 to outbound
 		    out( index ) = arr( fromIndex + index )
 		  next
@@ -459,13 +459,13 @@ Protected Module ArrayUtils
 		  // Note that if fromIndex and toIndex span the entire array, then
 		  // this function is equivalent to Clone.
 		  
-		  Var ub As Integer = arr.LastIndex
+		  Dim ub As Integer = UBound( arr )
 		  if fromIndex < 0 then fromIndex = ub + 1 + fromIndex
 		  if toIndex <= 0 then toIndex = ub + 1 + toIndex
-		  Var out() As Integer
-		  Var outbound As Integer = toIndex - fromIndex - 1
-		  ReDim out( outbound )
-		  Var index As Integer
+		  Dim out() As Integer
+		  Dim outbound As Integer = toIndex - fromIndex - 1
+		  Redim out( outbound )
+		  Dim index As Integer
 		  for index = 0 to outbound
 		    out( index ) = arr( fromIndex + index )
 		  next
@@ -482,13 +482,13 @@ Protected Module ArrayUtils
 		  // Note that if fromIndex and toIndex span the entire array, then
 		  // this function is equivalent to Clone.
 		  
-		  Var ub As Integer = arr.LastIndex
+		  Dim ub As Integer = UBound( arr )
 		  if fromIndex < 0 then fromIndex = ub + 1 + fromIndex
 		  if toIndex <= 0 then toIndex = ub + 1 + toIndex
-		  Var out() As String
-		  Var outbound As Integer = toIndex - fromIndex - 1
-		  ReDim out( outbound )
-		  Var index As Integer
+		  Dim out() As String
+		  Dim outbound As Integer = toIndex - fromIndex - 1
+		  Redim out( outbound )
+		  Dim index As Integer
 		  for index = 0 to outbound
 		    out( index ) = arr( fromIndex + index )
 		  next
@@ -505,20 +505,20 @@ Protected Module ArrayUtils
 		  // with the Slice method).  The data to insert comes from arrayToInsert, and is
 		  // specified in the same way -- by default, this is the entire source array.
 		  
-		  Var ub As Integer = arr.LastIndex
+		  Dim ub As Integer = UBound( arr )
 		  if fromIndex < 0 then fromIndex = ub + 1 + fromIndex
 		  if toIndex <= 0 then toIndex = ub + 1 + toIndex
 		  
-		  Var srcub As Integer = arrayToInsert.LastIndex
+		  Dim srcub As Integer = UBound( arrayToInsert )
 		  if srcFrom < 0 then srcFrom = srcub + 1 + srcFrom
 		  if srcTo <= 0 then srcTo = srcub + 1 + srcTo
 		  
 		  // First, see whether we need to insert or remove items to make room.
-		  Var qtyRemoving As Integer = toIndex - fromIndex
+		  Dim qtyRemoving As Integer = toIndex - fromIndex
 		  if qtyRemoving < 0 then return
-		  Var qtyInserting As Integer = srcTo - srcFrom
+		  Dim qtyInserting As Integer = srcTo - srcFrom
 		  if qtyInserting < 0 then qtyInserting = 0  // this is OK, just removes the dest slice
-		  Var roomNeeded As Integer = qtyInserting - qtyRemoving
+		  Dim roomNeeded As Integer = qtyInserting - qtyRemoving
 		  
 		  // Use RemoveSlice to remove any extra space.
 		  if roomNeeded < 0 then
@@ -526,13 +526,13 @@ Protected Module ArrayUtils
 		  end if
 		  
 		  // Replace or insert values as needed.
-		  Var srcPos, destPos As Integer
+		  Dim srcPos, destPos As Integer
 		  destPos = fromIndex
 		  for srcPos = srcFrom to srcTo - 1
 		    if destPos < toIndex then
 		      arr(destPos) = arrayToInsert( srcPos )
 		    else
-		      arr.AddAt( destPos, arrayToInsert( srcPos ) )
+		      arr.Insert destPos, arrayToInsert( srcPos )
 		    end if
 		    destPos = destPos + 1
 		  next
@@ -547,20 +547,20 @@ Protected Module ArrayUtils
 		  // with the Slice method).  The data to insert comes from arrayToInsert, and is
 		  // specified in the same way -- by default, this is the entire source array.
 		  
-		  Var ub As Integer = arr.LastIndex
+		  Dim ub As Integer = UBound( arr )
 		  if fromIndex < 0 then fromIndex = ub + 1 + fromIndex
 		  if toIndex <= 0 then toIndex = ub + 1 + toIndex
 		  
-		  Var srcub As Integer = arrayToInsert.LastIndex
+		  Dim srcub As Integer = UBound( arrayToInsert )
 		  if srcFrom < 0 then srcFrom = srcub + 1 + srcFrom
 		  if srcTo <= 0 then srcTo = srcub + 1 + srcTo
 		  
 		  // First, see whether we need to insert or remove items to make room.
-		  Var qtyRemoving As Integer = toIndex - fromIndex
+		  Dim qtyRemoving As Integer = toIndex - fromIndex
 		  if qtyRemoving < 0 then return
-		  Var qtyInserting As Integer = srcTo - srcFrom
+		  Dim qtyInserting As Integer = srcTo - srcFrom
 		  if qtyInserting < 0 then qtyInserting = 0  // this is OK, just removes the dest slice
-		  Var roomNeeded As Integer = qtyInserting - qtyRemoving
+		  Dim roomNeeded As Integer = qtyInserting - qtyRemoving
 		  
 		  // Use RemoveSlice to remove any extra space.
 		  if roomNeeded < 0 then
@@ -568,13 +568,13 @@ Protected Module ArrayUtils
 		  end if
 		  
 		  // Replace or insert values as needed.
-		  Var srcPos, destPos As Integer
+		  Dim srcPos, destPos As Integer
 		  destPos = fromIndex
 		  for srcPos = srcFrom to srcTo - 1
 		    if destPos < toIndex then
 		      arr(destPos) = arrayToInsert( srcPos )
 		    else
-		      arr.AddAt( destPos, arrayToInsert( srcPos ) )
+		      arr.Insert destPos, arrayToInsert( srcPos )
 		    end if
 		    destPos = destPos + 1
 		  next
@@ -589,20 +589,20 @@ Protected Module ArrayUtils
 		  // with the Slice method).  The data to insert comes from arrayToInsert, and is
 		  // specified in the same way -- by default, this is the entire source array.
 		  
-		  Var ub As Integer = arr.LastIndex
+		  Dim ub As Integer = UBound( arr )
 		  if fromIndex < 0 then fromIndex = ub + 1 + fromIndex
 		  if toIndex <= 0 then toIndex = ub + 1 + toIndex
 		  
-		  Var srcub As Integer = arrayToInsert.LastIndex
+		  Dim srcub As Integer = UBound( arrayToInsert )
 		  if srcFrom < 0 then srcFrom = srcub + 1 + srcFrom
 		  if srcTo <= 0 then srcTo = srcub + 1 + srcTo
 		  
 		  // First, see whether we need to insert or remove items to make room.
-		  Var qtyRemoving As Integer = toIndex - fromIndex
+		  Dim qtyRemoving As Integer = toIndex - fromIndex
 		  if qtyRemoving < 0 then return
-		  Var qtyInserting As Integer = srcTo - srcFrom
+		  Dim qtyInserting As Integer = srcTo - srcFrom
 		  if qtyInserting < 0 then qtyInserting = 0  // this is OK, just removes the dest slice
-		  Var roomNeeded As Integer = qtyInserting - qtyRemoving
+		  Dim roomNeeded As Integer = qtyInserting - qtyRemoving
 		  
 		  // Use RemoveSlice to remove any extra space.
 		  if roomNeeded < 0 then
@@ -610,13 +610,13 @@ Protected Module ArrayUtils
 		  end if
 		  
 		  // Replace or insert values as needed.
-		  Var srcPos, destPos As Integer
+		  Dim srcPos, destPos As Integer
 		  destPos = fromIndex
 		  for srcPos = srcFrom to srcTo - 1
 		    if destPos < toIndex then
 		      arr(destPos) = arrayToInsert( srcPos )
 		    else
-		      arr.AddAt( destPos, arrayToInsert( srcPos ) )
+		      arr.Insert destPos, arrayToInsert( srcPos )
 		    end if
 		    destPos = destPos + 1
 		  next
@@ -626,7 +626,7 @@ Protected Module ArrayUtils
 	#tag Method, Flags = &h0
 		Function Total(Extends arr() As Double) As Double
 		  // Return the total sum of the items in the array.
-		  Var item, out As Double
+		  Dim item, out As Double
 		  for each item in arr
 		    out = out + item
 		  next
@@ -638,7 +638,7 @@ Protected Module ArrayUtils
 	#tag Method, Flags = &h0
 		Function Total(Extends arr() As Integer) As Integer
 		  // Return the total sum of the items in the array.
-		  Var item, out As Integer
+		  Dim item, out As Integer
 		  for each item in arr
 		    out = out + item
 		  next
@@ -649,61 +649,23 @@ Protected Module ArrayUtils
 
 
 	#tag Note, Name = Change History
-		2006-JAN-03:
+		
+		2006-01-03:
 		- Initial release.
 		
-		2006-JAN-16:
+		2006-01-16:
 		- Changed the meaning of the second slice index on Slice and RemoveSlice,
-		  since careful thought about Splice pointed out how the previous meaning was wrong
-		  and Guido van Rossum, as usual, was quite right.  See "Slice Indexing" note.
+		   since careful thought about Splice pointed out how the previous meaning was wrong
+		   and Guido van Rossum, as usual, was quite right.  See "Slice Indexing" note.
+		
 		- Renamed AppendArray to Append (this works fine as of RB2006R1).
+		
 		- Finished the Splice and Append methods.
 		
-		2006-JAN-31:
+		2006-01-31:
 		- Added the Concat method.
+		
 		- Added the Reverse method.
-		
-		2020-DeC-27:
-		- Renamed Append to Add 
-		- Conversion to API2
-		
-	#tag EndNote
-
-	#tag Note, Name = Contributors
-		
-		Many people have contributed to the development of this module, including:
-		
-		Joe Strout, joe@strout.net 
-		Jeannot Muller, dr@jeannot-muller.com (*)
-		
-		(*) To whom correspondence should be addressed.
-		
-		
-	#tag EndNote
-
-	#tag Note, Name = Home Page
-		
-		This StringUtils module in the API Version 2 is maintained by TECcompanion GmbH.
-		The current administrative contact for it is Jeannot Muller (jeannot-muller.com).
-		You should be able to find the latest version via this URL:
-		
-		    https://jeannot-muller.com/ 
-		
-		        and on GitHub: 
-		
-		    https://github.com/Jeannot-Muller/Xojo-ArrayUtils-API2
-		
-		
-	#tag EndNote
-
-	#tag Note, Name = License
-		
-		This StringUtils module is in the public domain.  You may use it for any purpose
-		whatsoever, but it comes with no express or implied warranty of correctness or
-		fitness for any purpose.
-		
-		Share and enjoy!
-		
 		
 	#tag EndNote
 

@@ -27,52 +27,48 @@ Begin Window MainWindow
    Visible         =   True
    Width           =   555
    Begin TextArea OutFld
-      AllowAutoDeactivate=   True
-      AllowFocusRing  =   True
-      AllowSpellChecking=   True
-      AllowStyledText =   True
-      AllowTabs       =   False
-      BackgroundColor =   &cFFFFFF00
+      AcceptTabs      =   False
+      Alignment       =   0
+      AutoDeactivate  =   True
+      BackColor       =   
       Bold            =   False
+      Border          =   True
+      ControlOrder    =   "0"
       DataField       =   ""
       DataSource      =   ""
       Enabled         =   True
-      FontName        =   "System"
-      FontSize        =   0.0
-      FontUnit        =   0
       Format          =   ""
-      HasBorder       =   True
-      HasHorizontalScrollbar=   False
-      HasVerticalScrollbar=   True
       Height          =   342
-      HideSelection   =   True
+      HelpTag         =   ""
       Index           =   -2147483648
       InitialParent   =   ""
       Italic          =   False
       Left            =   20
-      LineHeight      =   0.0
-      LineSpacing     =   1.0
+      LimitText       =   0
       LockBottom      =   False
       LockedInPosition=   False
       LockLeft        =   False
       LockRight       =   False
       LockTop         =   False
-      MaximumCharactersAllowed=   0
+      Mask            =   ""
       Multiline       =   True
+      Password        =   False
       ReadOnly        =   True
-      Scope           =   0
+      ScrollbarHorizontal=   False
+      ScrollbarVertical=   True
+      Styled          =   False
       TabIndex        =   0
       TabPanelIndex   =   0
       TabStop         =   True
       Text            =   ""
-      TextAlignment   =   0
-      TextColor       =   &c00000000
-      Tooltip         =   ""
+      TextColor       =   
+      TextFont        =   "System"
+      TextSize        =   0.0
+      TextUnit        =   0
       Top             =   14
       Transparent     =   True
       Underline       =   False
-      UnicodeMode     =   0
-      ValidationMask  =   ""
+      UseFocusRing    =   True
       Visible         =   True
       Width           =   515
    End
@@ -96,7 +92,7 @@ End
 
 	#tag Method, Flags = &h0, CompatibilityFlags = TargetHasGUI
 		Sub Print(s As String)
-		  OutFld.AddText( s + EndOfLine )
+		  OutFld.AppendText s + EndOfLine
 		  
 		End Sub
 	#tag EndMethod
