@@ -8,7 +8,7 @@ Protected Module ArrayUtils
 		  if ub2 < 0 then return
 		  
 		  Var base As Integer = arr.count
-		  ReDim arr( base + ub2 )
+		  arr.ResizeTo( base + ub2 )
 		  
 		  Var index As Integer
 		  for index = 0 to ub2
@@ -27,7 +27,7 @@ Protected Module ArrayUtils
 		  if ub2 < 0 then return
 		  
 		  Var base As Integer = arr.count
-		  ReDim arr( base + ub2 )
+		  arr.ResizeTo( base + ub2 )
 		  
 		  Var index As Integer
 		  for index = 0 to ub2
@@ -46,7 +46,7 @@ Protected Module ArrayUtils
 		  if ub2 < 0 then return
 		  
 		  Var base As Integer = arr.count
-		  ReDim arr( base + ub2 )
+		  arr.ResizeTo( base + ub2 )
 		  
 		  Var index As Integer
 		  for index = 0 to ub2
@@ -276,7 +276,7 @@ Protected Module ArrayUtils
 		  
 		  // easy case: deleting the end of the array, we can just ReDim and be done
 		  if toIndex - 1 = ub then
-		    ReDim arr( fromIndex - 1 )
+		    arr.ResizeTo( fromIndex - 1 )
 		    return
 		  end if
 		  
@@ -293,7 +293,7 @@ Protected Module ArrayUtils
 		    arr(dest) = arr(src)
 		    dest = dest + 1
 		  next
-		  ReDim arr( dest - 1 )
+		  arr.ResizeTo( dest - 1 )
 		  return
 		  
 		End Sub
@@ -312,7 +312,7 @@ Protected Module ArrayUtils
 		  
 		  // easy case: deleting the end of the array, we can just ReDim and be done
 		  if toIndex - 1 = ub then
-		    ReDim arr( fromIndex - 1 )
+		    arr.ResizeTo( fromIndex - 1 )
 		    return
 		  end if
 		  
@@ -329,7 +329,7 @@ Protected Module ArrayUtils
 		    arr(dest) = arr(src)
 		    dest = dest + 1
 		  next
-		  ReDim arr( dest - 1 )
+		  arr.ResizeTo( dest - 1 )
 		  return
 		  
 		End Sub
@@ -348,7 +348,7 @@ Protected Module ArrayUtils
 		  
 		  // easy case: deleting the end of the array, we can just ReDim and be done
 		  if toIndex -1 = ub then
-		    ReDim arr( fromIndex - 1 )
+		    arr.ResizeTo( fromIndex - 1 )
 		    return
 		  end if
 		  
@@ -365,7 +365,7 @@ Protected Module ArrayUtils
 		    arr(dest) = arr(src)
 		    dest = dest + 1
 		  next
-		  ReDim arr( dest - 1 )
+		  arr.ResizeTo( dest - 1 )
 		  return
 		  
 		End Sub
@@ -670,6 +670,7 @@ Protected Module ArrayUtils
 		2020-DEC-29:
 		- Feedback from Robert Livingston implemented: 
 		  "arr.LastIndex + 1" replaced by "arr.count"
+		  "ReDim arr()" replaced by "arr.ResizeTo()"
 		
 	#tag EndNote
 
