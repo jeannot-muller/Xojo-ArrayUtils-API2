@@ -669,7 +669,7 @@ Protected Module ArrayUtils
 		
 		2020-DEC-29:
 		- Feedback from Robert Livingston implemented: 
-		  "arr.LastIndex" + 1 replaced by "arr.count"
+		  "arr.LastIndex + 1" replaced by "arr.count"
 		
 	#tag EndNote
 
