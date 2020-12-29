@@ -7,7 +7,7 @@ Protected Module ArrayUtils
 		  Var ub2 As Integer = arr2.LastIndex
 		  if ub2 < 0 then return
 		  
-		  Var base As Integer = arr.LastIndex + 1
+		  Var base As Integer = arr.count
 		  ReDim arr( base + ub2 )
 		  
 		  Var index As Integer
@@ -26,7 +26,7 @@ Protected Module ArrayUtils
 		  Var ub2 As Integer = arr2.LastIndex
 		  if ub2 < 0 then return
 		  
-		  Var base As Integer = arr.LastIndex + 1
+		  Var base As Integer = arr.count
 		  ReDim arr( base + ub2 )
 		  
 		  Var index As Integer
@@ -45,7 +45,7 @@ Protected Module ArrayUtils
 		  Var ub2 As Integer = arr2.LastIndex
 		  if ub2 < 0 then return
 		  
-		  Var base As Integer = arr.LastIndex + 1
+		  Var base As Integer = arr.count
 		  ReDim arr( base + ub2 )
 		  
 		  Var index As Integer
@@ -64,7 +64,7 @@ Protected Module ArrayUtils
 		  for each item in arr
 		    sum = sum + item
 		  next
-		  return sum / ( arr.LastIndex + 1 )
+		  return sum / ( arr.count )
 		  
 		End Function
 	#tag EndMethod
@@ -76,7 +76,7 @@ Protected Module ArrayUtils
 		  for each item in arr
 		    sum = sum + item
 		  next
-		  return sum / ( arr.LastIndex + 1)
+		  return sum / ( arr.count)
 		  
 		End Function
 	#tag EndMethod
@@ -667,6 +667,10 @@ Protected Module ArrayUtils
 		- Renamed Append to Add 
 		- Conversion to API2
 		
+		2020-DEC-29:
+		- Feedback from Robert Livingston implemented: 
+		  "arr.LastIndex" + 1 replaced by "arr.count"
+		
 	#tag EndNote
 
 	#tag Note, Name = Contributors
@@ -675,6 +679,7 @@ Protected Module ArrayUtils
 		
 		Joe Strout, joe@strout.net 
 		Jeannot Muller, dr@jeannot-muller.com (*)
+		Robert Livingston 
 		
 		(*) To whom correspondence should be addressed.
 		
