@@ -21,7 +21,8 @@ fitness for any purpose.
 Share and enjoy!
 
 # Contributors
-Many people have contributed to the development of this module, including:
+No longer, actively maintained (since January 2024)
+Many people have contributed to the development of this module, including.
 
 ## API2
 Jeannot Muller, [dr@jeannot-muller.com]() (*)
